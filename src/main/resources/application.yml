@@ -1,0 +1,8 @@
+server:
+  port: 5044
+url:
+#  bmh: "http://117.247.179.116:8005"
+  bmh: "http://117.247.179.116:8001/bestdocapi/"
+  hrn: "http://114.143.104.229:8083"
+  trustwell: "https://services.bestdocapp.com"
+#  hrn: "http://122.15.97.146:8181"
