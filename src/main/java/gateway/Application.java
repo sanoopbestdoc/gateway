@@ -23,11 +23,14 @@ public class Application {
     @Value("${url.hrn}")
     private String hrnUrl;
 
-    @Value("${url.trustwell}")
-    private String trustwell;
+    @Value("${url.hrnqms}")
+    private String hrnQMSUrl;
 
-    @Value("${url.daya}")
-    private String dayaUrl;
+    @Value("${url.ni-otc}")
+    private String niotcUrl;
+
+    @Value("${url.tiatech}")
+    private String tiatechUrl;
 
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
@@ -45,18 +48,24 @@ public class Application {
                         )
                         .uri(hrnUrl))
                 .route(p -> p
-                        .path("/trustwell/**")
+                        .path("/hrnqms/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(hrnQMSUrl))
+                .route(p -> p
+                        .path("/ni-otc/**")
                         .filters(
                                 f -> f.stripPrefix(1).addRequestHeader("Authorization","Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0cmVhdHdlbGwiLCJ1c2VySWQiOiJNRVNVcWRzcXgxT1J5bnhzVVBuMlp5RDlwa2gzYzVyM2lVJTJCd005TjMlMkZIdVVCWHBUJTJGVlJ6YnJaJTJCWUs0ZUE4Nm5YSmNtTjJDenFHeHVUVUQ1dXFFaDZnJTNEJTNEIiwicm9sZSI6ImJlc3Rkb2MifQ.HtAlojH554FkqVUJsw5mVSfJvKeqmT5QcK_o2EsmigpqmLOfhoDwPn23LRit0U10FCYww619tZltRvbgpwjTAA")
 
                         )
-                        .uri(trustwell))
+                        .uri(niotcUrl))
                 .route(p -> p
-                        .path("/daya/**")
+                        .path("/tiatech/**")
                         .filters(
                                 f -> f.stripPrefix(1)
                         )
-                        .uri(dayaUrl))
+                        .uri(tiatechUrl))
                 .build();
     }
 
