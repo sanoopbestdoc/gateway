@@ -26,6 +26,9 @@ public class Application {
     @Value("${url.trustwell}")
     private String trustwell;
 
+    @Value("${url.daya}")
+    private String dayaUrl;
+
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
@@ -48,6 +51,12 @@ public class Application {
 
                         )
                         .uri(trustwell))
+                .route(p -> p
+                        .path("/daya/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(dayaUrl))
                 .build();
     }
 
