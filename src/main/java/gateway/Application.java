@@ -29,8 +29,8 @@ public class Application {
     @Value("${url.ni-otc}")
     private String niotcUrl;
 
-    @Value("${url.tiatech}")
-    private String tiatechUrl;
+    @Value("${url.prms}")
+    private String prmsUrl;
 
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
@@ -61,11 +61,11 @@ public class Application {
                         )
                         .uri(niotcUrl))
                 .route(p -> p
-                        .path("/tiatech/**")
+                        .path("/prms/**")
                         .filters(
                                 f -> f.stripPrefix(1)
                         )
-                        .uri(tiatechUrl))
+                        .uri(prmsUrl))
                 .build();
     }
 

@@ -6,5 +6,5 @@ url:
   hrn: "http://114.143.104.229:8083"
   hrnqms: "http://122.15.97.146.8081/api"
   ni-otc: "https://services.bestdocapp.com"
-  tiatech: "https://api.bestdocapp.in"
+  prms: "https://api.bestdocapp.in"
 #  hrn: "http://122.15.97.146:8181"
