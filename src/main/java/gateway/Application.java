@@ -32,6 +32,9 @@ public class Application {
     @Value("${url.prms}")
     private String prmsUrl;
 
+    @Value("${url.daya}")
+    private String dayaUrl;
+
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
@@ -66,6 +69,12 @@ public class Application {
                                 f -> f.stripPrefix(1)
                         )
                         .uri(prmsUrl))
+                .route(p -> p
+                        .path("/daya/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(dayaUrl))
                 .build();
     }
 
