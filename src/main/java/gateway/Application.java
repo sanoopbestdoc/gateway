@@ -35,6 +35,12 @@ public class Application {
     @Value("${url.daya}")
     private String dayaUrl;
 
+    @Value("${url.dev}")
+    private String bmhDevUrl;
+
+    @Value("${url.hrndev}")
+    private String hrnDev;
+
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
@@ -75,6 +81,18 @@ public class Application {
                                 f -> f.stripPrefix(1)
                         )
                         .uri(dayaUrl))
+                .route(p -> p
+                        .path("/dev/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(bmhDevUrl))
+                .route(p -> p
+                        .path("/hrndev/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(hrnDev))
                 .build();
     }
 
