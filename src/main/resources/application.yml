@@ -4,7 +4,7 @@ url:
   dev: "http://117.247.179.116:8005"
   bmh: "http://117.247.179.116:8001/bestdocapi/"
   hrn: "http://114.143.104.229:8083"
-  hrndev: "http://122.15.97.146:8181"
+  hrndev: "http://114.143.104.229:8181"
   hrnqms: "http://122.15.97.146.8081/api"
   ni-otc: "https://services.bestdocapp.com"
   prms: "https://api.bestdocapp.in"
