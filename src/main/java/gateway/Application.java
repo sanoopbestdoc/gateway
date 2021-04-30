@@ -50,6 +50,12 @@ public class Application {
     @Value("${url.armc}")
     private String armc;
 
+    @Value("${url.appolodev}")
+    private String appoloDev;
+
+    @Value("${url.appolo}")
+    private String appolo;
+
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
@@ -120,6 +126,18 @@ public class Application {
                                 f -> f.stripPrefix(1)
                         )
                         .uri(armc))
+                .route(p -> p
+                        .path("/appolodev/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(appoloDev))
+                .route(p -> p
+                        .path("/appolo/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(appolo))
                 .build();
     }
 
