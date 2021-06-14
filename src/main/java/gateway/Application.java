@@ -129,7 +129,7 @@ public class Application {
                 .route(p -> p
                         .path("/appolodev/**")
                         .filters(
-                                f -> f.stripPrefix(1)
+                                f -> f.stripPrefix(1).prefixPath(URI.create(appoloDev).getPath())
                         )
                         .uri(appoloDev))
                 .route(p -> p
