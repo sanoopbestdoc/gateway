@@ -56,6 +56,9 @@ public class Application {
     @Value("${url.appolo}")
     private String appolo;
 
+    @Value("${url.dayadev}")
+    private String dayaDevUrl;
+
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
@@ -96,6 +99,12 @@ public class Application {
                                 f -> f.stripPrefix(1)
                         )
                         .uri(dayaUrl))
+                .route(p -> p
+                        .path("/dayadev/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(dayaDevUrl))
                 .route(p -> p
                         .path("/dev/**")
                         .filters(
