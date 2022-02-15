@@ -3,16 +3,11 @@ package gateway;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
-import org.springframework.web.cors.CorsConfiguration;
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.HashMap;
 
 @SpringBootApplication
 public class Application {
@@ -64,6 +59,9 @@ public class Application {
 
     @Value("${url.shgh}")
     private String shgh;
+
+    @Value("${url.dayapalakkad}")
+    private String dayapalakkad;
 
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
@@ -165,6 +163,12 @@ public class Application {
                                 f -> f.stripPrefix(1)
                         )
                         .uri(shgh))
+                .route(p -> p
+                        .path("/dayapalakkad/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(dayapalakkad))
                 .build();
     }
 
