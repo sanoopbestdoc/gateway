@@ -63,6 +63,9 @@ public class Application {
     @Value("${url.manjml}")
     private String manjummelUrl;
 
+    @Value("${url.dayapalakdev}")
+    private String dayapalakdev;
+
     @Value("${url.dayapalakkad}")
     private String dayapalakkad;
 
@@ -172,6 +175,12 @@ public class Application {
                                 f -> f.stripPrefix(1)
                         )
                         .uri(shgh))
+                .route(p -> p
+                        .path("/dayapalakdev/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(dayapalakdev))
                 .route(p -> p
                         .path("/dayapalakkad/**")
                         .filters(
