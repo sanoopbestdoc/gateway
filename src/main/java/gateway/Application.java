@@ -60,8 +60,8 @@ public class Application {
     @Value("${url.shgh}")
     private String shgh;
 
-    @Value("${url.manjml}")
-    private String manjummelUrl;
+//    @Value("${url.manjml}")
+//    private String manjummelUrl;
 
     @Value("${url.dayapalakdev}")
     private String dayapalakdev;
@@ -109,12 +109,12 @@ public class Application {
                                 f -> f.stripPrefix(1)
                         )
                         .uri(dayaUrl))
-                .route(p -> p
-                        .path("/manjml/**")
-                        .filters(
-                                f -> f.stripPrefix(1)
-                        )
-                        .uri(manjummelUrl))
+//                .route(p -> p
+//                        .path("/manjml/**")
+//                        .filters(
+//                                f -> f.stripPrefix(1)
+//                        )
+//                        .uri(manjummelUrl))
                 .route(p -> p
                         .path("/dayadev/**")
                         .filters(
