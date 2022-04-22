@@ -72,6 +72,11 @@ public class Application {
     @Value("${url.meitradev}")
     private String meitradev;
 
+    @Value("${url.meitralive}")
+    private String meitralive;
+
+
+
 
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
@@ -191,6 +196,12 @@ public class Application {
                                 f -> f.stripPrefix(1)
                         )
                         .uri(meitradev))
+                .route(p -> p
+                        .path("/meitralive/**")
+                        .filters(
+                                f -> f.stripPrefix(1)
+                        )
+                        .uri(meitralive))
                 .route(p -> p
                         .path("/dayapalakkad/**")
                         .filters(
